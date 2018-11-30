@@ -20,3 +20,4 @@ BEGIN
 	    insert into T values(USER , SYSDATE , 'Mise à jour');
 	END IF;
 END;
+
