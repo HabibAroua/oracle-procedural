@@ -16,3 +16,5 @@
     1)Ecrire un bloc PL/SQL qui permet d'afficher pour chaque employé le matricule , le nom , le prénom le montant de salaire correspondant
 	  à son grade et le taux d'imposition correspondant à sa catégorie fiscale.
 */
+DECALRE 
+    CURSOR CUR
