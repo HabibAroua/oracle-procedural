@@ -17,4 +17,17 @@
 	  à son grade et le taux d'imposition correspondant à sa catégorie fiscale.
 */
 DECALRE 
-    CURSOR CUR
+    CURSOR CUR IS SELECT E.matricule , E.nom , E.prenom , G.Mnt_Salaire , CF.taux_impression
+	              FROM Employe E , Grade G , Categorie_fiscale CF
+				  WHERE E.code_grade=G.code_grade AND E.code_categorie_fiscale=CF.code_categorie_fiscale
+				  ORDER BY E.nom , E.prenom ;
+    BEGIN
+	    FOR v_cur in cur LOOP
+		    dbms_output.put_line(v_cur.nom||' '||v_cur.prenom||' '||v_cur.Mnt_Salaire||' '||v_cur.taux_impression);
+		END LOOP;
+		EXCEPTION 
+		    WHEN NO_DATA_FOUND THEN
+			    dbms_output.put_line('Aucun Employe');
+			WHEN OTHERS THEN
+			    dbms_output.put_line('Erreur');
+	END;
