@@ -31,3 +31,8 @@ DECALRE
 			WHEN OTHERS THEN
 			    dbms_output.put_line('Erreur');
 	END;
+	
+/*
+    2)Ecrire une fonction cataloguée <<Calc_Salaire_Emp>> qui permet de retourner le montant de salaire et le montant d'impôt pour un employé
+	  ayant un matricule donné.
+*/
