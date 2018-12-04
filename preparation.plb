@@ -3,7 +3,7 @@
 	Employe(p:Matricule,Nom,Prenom,Date_recrutement,#code_grade,#code_categorie_fiscale)
 	Grade(p:Code_grade,Nom_grade,Mnt_Salaire)
 	Categorie_fiscale(p:Code_categorie_fiscale,Designation,Taux_imposition)
-	Historique_fiscale(p:#Matricule,p:#Mois,Mnt_Salaire_brut,mnt_impot)
+	Historique_Salaire(p:#Matricule,p:#Mois,Mnt_Salaire_brut,mnt_impot)
 	Masse_salariale_mensuelle(p:Mois,masse_salariale)
 	p: => clé primaire 
 	#: => clé étrangére
@@ -52,4 +52,6 @@ CREATE function calc_Salaire_Emp(v_matricule in varchar , v_mnt_imp ou NUMBER , 
 	END;
 	
 /*
-    
+    3)Ecrire une procedure cataloguée <<Calc_Salaire_Mois>> qui permet de calculer le montant de salaire et le montant d'impôt de tous 
+	  les employés pour un mois donné et insère ces données dans la table Historique_Salaire
+*/
