@@ -2,7 +2,7 @@
     La direction des ressources humaines d'une entreprise utilise les tables suivantes pour gérer les salaires de ses employés:
 	Employe(p:Matricule,Nom,Prenom,Date_recrutement,#code_grade,#code_categorie_fiscale)
 	Grade(p:Code_grade,Nom_grade,Mnt_Salaire)
-	Categorie(p:Code_categorie_fiscale,Designation,Taux_imposition)
+	Categorie_fiscale(p:Code_categorie_fiscale,Designation,Taux_imposition)
 	Historique_fiscale(p:#Matricule,p:#Mois,Mnt_Salaire_brut,mnt_impot)
 	Masse_salariale_mensuelle(p:Mois,masse_salariale)
 	p: => clé primaire 
@@ -36,3 +36,20 @@ DECALRE
     2)Ecrire une fonction cataloguée <<Calc_Salaire_Emp>> qui permet de retourner le montant de salaire et le montant d'impôt pour un employé
 	  ayant un matricule donné.
 */
+CREATE function calc_Salaire_Emp(v_matricule in varchar , v_mnt_imp ou NUMBER , v_mnt_Sal out NUMBER)
+    return NUMBER IS
+	BEGIN
+	    SELECT G.Mnt_Salaire , CA.taux_impression*G.Mnt_Salaire
+		into v_mnt_Sal , v_mnt_imp
+		FROM Employe E , Grade G , Categorie_fiscale CA
+        WHERE E.matricule = v_matricule AND G.code_grade=E.code_grade ;
+        return 0;
+        EXCEPTION 
+            WHEN NO_DATA_FOUND THEN
+                return -1;
+            WHEN OTHERS THEN
+                return -1;			
+	END;
+	
+/*
+    
