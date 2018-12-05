@@ -55,3 +55,19 @@ CREATE function calc_Salaire_Emp(v_matricule in varchar , v_mnt_imp ou NUMBER , 
     3)Ecrire une procedure cataloguée <<Calc_Salaire_Mois>> qui permet de calculer le montant de salaire et le montant d'impôt de tous 
 	  les employés pour un mois donné et insère ces données dans la table Historique_Salaire
 */
+CREATE procedure Calc_Salaire_Mois (p_mois in Date)
+IS 
+    CURSOR cur is SELECT matricule FROM Employe
+BEGIN
+    FOR sal in cur LOOP
+	    x:=calc_Salaire_Emp(sal.matricule,v_sal,v_mnt);
+		if x = THEN
+		    insert into Historique_Salaire VALUES(sal.matricule,p_mois,v_sal,v_mnt);
+			ELSE
+			    raise erreur;
+		END IF;
+	END LOOP;
+	EXCEPTION 
+	    WHEN OTHERS THEN
+		    NULL;
+END;
