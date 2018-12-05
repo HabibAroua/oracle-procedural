@@ -6,7 +6,7 @@
 	Dept(dept_id , dept_name , nb_emp)
 */
 Create Trigger Modif after insert or delete on Emlployee
-for each Rows
+for each Row
 Begin
     IF Inserting THEN
 	    update Dept
