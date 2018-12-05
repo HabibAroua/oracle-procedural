@@ -20,7 +20,7 @@ Create procedure Caclcul(ps1 out NUMBER , ps2 out NUMBER , ps3 out NUMBER)IS
 				ELSE
 				    ps3:=ps3+1;
 			END IF;
-	    END FOR;
+	    END LOOP;
 		EXCEPTION 
 		    WHEN OTHERS THEN 
 			    ps1:=0;
