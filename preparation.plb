@@ -36,7 +36,7 @@ DECALRE
     2)Ecrire une fonction cataloguée <<Calc_Salaire_Emp>> qui permet de retourner le montant de salaire et le montant d'impôt pour un employé
 	  ayant un matricule donné.
 */
-CREATE function calc_Salaire_Emp(v_matricule in varchar , v_mnt_imp ou NUMBER , v_mnt_Sal out NUMBER)
+CREATE function calc_Salaire_Emp(v_matricule in varchar , v_mnt_imp out NUMBER , v_mnt_Sal out NUMBER)
     return NUMBER IS
 	BEGIN
 	    SELECT G.Mnt_Salaire , CA.taux_impression*G.Mnt_Salaire
