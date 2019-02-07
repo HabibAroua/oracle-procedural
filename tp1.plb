@@ -1,5 +1,5 @@
 Declare 
-begin
+BEGIN
      insert into countries values('Tn','Tunisia',4);
 End;
 
@@ -7,7 +7,7 @@ set SERVEROUTPUT on
 Declare
     v_nom varchar2(50) ;
     v_prenom varchar2(50);
-begin
+BEGIN
      select first_name , last_name
      into v_prenom , v_nom
      From employees
@@ -35,9 +35,9 @@ Begin
     into v_commision , v_salalire
     FROM employees
     where employee_id = 145;
-    if v_commision is null then
+    IF v_commision is null THEN
         DBMS_OUTPUT.PUT_LINE('Le salaire est '||v_salalire);
-        else
+        ELSE
            DBMS_OUTPUT.PUT_line('Le salaire est  '||v_salalire||' commision '||v_commision);
-    end if;
+    END IF;
 END;
