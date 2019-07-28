@@ -5,19 +5,19 @@
 	_ USER = utilisateur actuelement connecté
 	_ SYSDATE = date systéme
 */
+
 Create Trigger HIS AFTER INSERT or DELETE or UPDATE
 on T
 BEGIN
-    IF INSERTING THEN
-	    insert into Historique values(USER , SYSDATE , 'Insertion');
+	IF INSERTING THEN
+		    insert into Historique values(USER , SYSDATE , 'Insertion');
 	END IF;
 	
 	IF DELETING THEN
-	    insert into Historique values(USER , SYSDATE , 'Suppression');
+		insert into Historique values(USER , SYSDATE , 'Suppression');
 	END IF;
 	
 	IF UPDATING THEN
-	    insert into Historique values(USER , SYSDATE , 'Mise à jour');
+		insert into Historique values(USER , SYSDATE , 'Mise à jour');
 	END IF;
 END;
-
