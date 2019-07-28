@@ -10,7 +10,7 @@ Create Trigger HIS AFTER INSERT or DELETE or UPDATE
 on T
 BEGIN
 	IF INSERTING THEN
-		    insert into Historique values(USER , SYSDATE , 'Insertion');
+		insert into Historique values(USER , SYSDATE , 'Insertion');
 	END IF;
 	
 	IF DELETING THEN
